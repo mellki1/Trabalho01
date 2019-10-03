@@ -13,7 +13,7 @@ import classes.Pessoa;
 import dao.PessoaDAO;
 
 
-@WebServlet("/removePessoa")
+@WebServlet("/main")
 public class RemovePessoa extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)

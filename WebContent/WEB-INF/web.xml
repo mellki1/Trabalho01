@@ -14,12 +14,12 @@
 		<location>/erro.html</location>
 	</error-page>
 	<servlet>
-		<servlet-name>Trabalho01</servlet-name>
-		<servlet-class>br.servlet.AdicionaPessoa</servlet-class>
+		<servlet-name>trabalho01</servlet-name>
+		<servlet-class>br.servlet.AdicionarPessoa</servlet-class>
 	</servlet>
   
 	<servlet-mapping>
-		<servlet-name>Trabalho01</servlet-name>
-		<url-pattern>/adicionaCliente</url-pattern>
+		<servlet-name>trabalho01</servlet-name>
+		<url-pattern>/oiMundo</url-pattern>
 	</servlet-mapping>
 </web-app>

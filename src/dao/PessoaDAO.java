@@ -1,6 +1,10 @@
 package dao;
 
+
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 
@@ -60,5 +64,35 @@ public class PessoaDAO{
 		}catch(Exception e){
 			System.out.println(e);
 		}
+	}
+	
+	public List<Pessoa> buscarTodos(){
+		List<Pessoa> listarPessoas = new ArrayList<>();
+		
+		String sql = "Select * from pessoa";
+		Pessoa pessoa = null ;
+		
+		try(PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
+			
+			ResultSet result = preparedStatement.executeQuery();
+			
+			
+			while(result.next()){
+				pessoa = new Pessoa();
+				pessoa.setId(result.getInt("id"));
+				pessoa.setNome(result.getString("nome"));
+				pessoa.setCpf(result.getString("cpf"));
+				pessoa.setEndereco(result.getString("endereco"));
+				pessoa.setCidade(result.getString("cidade"));
+				pessoa.setUf(result.getString("uf"));
+				
+				listarPessoas.add(pessoa);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+		}
+		return listarPessoas;
 	}
 }
